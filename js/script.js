@@ -5,7 +5,7 @@ function openForm() {
     history.replaceState({ state: 'formClosed' }, 'Форма обратной связи', '?formClosed');
     history.pushState({ state: 'formOpen' }, 'Форма обратной связи', '?formOpen');
     isFormOpen = true;
-    restoreFormData();
+    restoreFormData(); 
 }
 
 function closeForm() {
@@ -72,6 +72,7 @@ function clearForm() {
 }
 
 window.onpopstate = function (event) {
+ 
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('utm') === 'closedFrom') {
         closeForm();
