@@ -74,7 +74,7 @@ function clearForm() {
 window.onpopstate = function (event) {
  
     const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.get('utm') === 'closedFrom') {
+    if (urlParams.get('utm') === 'formClosed') {
         closeForm();
     } else {
         if (event.state && event.state.state === 'formOpen' && isFormOpen) {
