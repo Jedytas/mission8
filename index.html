@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <title>mission 8</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+
+<button onclick="openForm()">Открыть форму</button>
+
+<div id="popup" class="popup">
+    <span onclick="closeForm()" class="close-button">х</span>
+    <form id="feedbackForm">
+        <label for="fullName">ФИО:</label>
+        <input type="text" id="fullName" name="fullName" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="phone">Телефон:</label>
+        <input type="tel" id="phone" name="phone" required>
+
+        <label for="organization">Организация:</label>
+        <input type="text" id="organization" name="organization">
+
+        <label for="message">Сообщение:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+
+        <label>
+            <input type="checkbox" id="consent" name="consent" required>
+            Согласие с политикой обработки персональных данных
+        </label>
+
+        <button type="button" onclick="submitForm()">Отправить</button>
+    </form>
+    <div id="response"></div>
+    <div class="message" id="formMessage"></div>
+</div>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>
