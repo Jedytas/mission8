@@ -1,17 +1,13 @@
-var isFormOpen = false;
-
 function openForm() {
     document.getElementById("popup").style.display = "block";
     history.replaceState({ state: 'formClosed' }, 'Форма обратной связи', '?formClosed');
     history.pushState({ state: 'formOpen' }, 'Форма обратной связи', '?formOpen');
-    isFormOpen = true;
     restoreFormData(); 
 }
 
 function closeForm() {
     document.getElementById("popup").style.display = "none";
     history.pushState({ state: 'formClosed' }, 'Закрыта форма обратной связи', '?formClosed');
-    isFormOpen = false;
 }
 
 function submitForm() {
@@ -71,16 +67,10 @@ function clearForm() {
     document.getElementById("consent").checked = false;
 }
 
-window.onpopstate = function (event) {
- 
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.get('utm') === 'formClosed') {
-        closeForm();
-    } else {
-        if (event.state && event.state.state === 'formOpen' && isFormOpen) {
+   window.onpopstate = function (event) {
+        if (event.state && event.state.state === 'formOpen') {
             openForm();
-        } else if (event.state && event.state.state === 'formClosed' && !isFormOpen) {
+        } else if (event.state && event.state.state === 'formClosed') {
             closeForm();
         }
-    }
-};
+    };
